@@ -17,8 +17,10 @@ import Service.TaiKhoanService;
 import Service.ThuongHieuService;
 import Service.XuatXuService;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;gti 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -441,8 +443,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
         btnkmmoi = new javax.swing.JButton();
         btnkmsua = new javax.swing.JButton();
         btnkmxoa = new javax.swing.JButton();
-        txtkmbatdau = new com.toedter.calendar.JDateChooser();
-        txtkmketthuc = new com.toedter.calendar.JDateChooser();
         txtkmmucgg = new javax.swing.JTextField();
         txtkmtenct = new javax.swing.JTextField();
         jphoadon = new javax.swing.JPanel();
@@ -627,8 +627,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
         jLabel94 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTable9 = new javax.swing.JTable();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jpnhanvien = new javax.swing.JPanel();
         jPanel27 = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
@@ -644,7 +642,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
         jLabel105 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         txtnvdiachi = new javax.swing.JTextArea();
-        txtnvngaysinh = new com.toedter.calendar.JDateChooser();
         jLabel9 = new javax.swing.JLabel();
         txtnvemail = new javax.swing.JTextField();
         jPanel28 = new javax.swing.JPanel();
@@ -991,10 +988,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtkmbatdau.setDateFormatString("dd-MM-yyyy");
-
-        txtkmketthuc.setDateFormatString("dd-MM-yyyy");
-
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
         jPanel32Layout.setHorizontalGroup(
@@ -1014,10 +1007,8 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                             .addComponent(jLabel112, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtkmbatdau, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(txtkmmucgg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(txtkmtenct, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtkmketthuc, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(txtkmtenct, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addComponent(jLabel113, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
             .addComponent(jPanel33, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1034,20 +1025,16 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                     .addComponent(jLabel110)
                     .addComponent(txtkmmucgg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel111)
-                    .addComponent(txtkmbatdau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel112)
-                    .addComponent(txtkmketthuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addComponent(jLabel111)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel112)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel113)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rdokmdangdienra)
                     .addComponent(rdokmdaketthuc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -2016,13 +2003,12 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                             .addComponent(rdomausac, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(rdoxuatxu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
-                        .addComponent(rdophanloai, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(153, Short.MAX_VALUE))
+                        .addComponent(rdophanloai, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(btnttsua)
                         .addGap(30, 30, 30)
-                        .addComponent(btnttan)
-                        .addGap(86, 613, Short.MAX_VALUE))))
+                        .addComponent(btnttan)))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtttid, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
@@ -2499,10 +2485,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Sản phẩm", jPanel25);
 
-        jDateChooser1.setDateFormatString("dd-MM-yyyy");
-
-        jDateChooser2.setDateFormatString("dd-MM-yyyy");
-
         javax.swing.GroupLayout jpthongkeLayout = new javax.swing.GroupLayout(jpthongke);
         jpthongke.setLayout(jpthongkeLayout);
         jpthongkeLayout.setHorizontalGroup(
@@ -2514,12 +2496,8 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                 .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(155, 155, 155)
                 .addComponent(jLabel91, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton19)
                 .addGap(40, 40, 40))
@@ -2535,7 +2513,7 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                         .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jpthongkeLayout.setVerticalGroup(
             jpthongkeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2553,8 +2531,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                         .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel90)
                         .addComponent(jButton19))
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel91))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2584,8 +2560,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
         txtnvdiachi.setRows(5);
         jScrollPane13.setViewportView(txtnvdiachi);
 
-        txtnvngaysinh.setDateFormatString("dd-MM-yyyy");
-
         jLabel9.setText("Email");
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
@@ -2596,15 +2570,12 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel27Layout.createSequentialGroup()
-                        .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel27Layout.createSequentialGroup()
                                 .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtnvsodt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel27Layout.createSequentialGroup()
-                                .addComponent(jLabel98, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtnvngaysinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel98, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane13))
                     .addGroup(jPanel27Layout.createSequentialGroup()
@@ -2628,7 +2599,7 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel27Layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                                 .addComponent(txtnvemail, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel100, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2658,10 +2629,8 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
                         .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel27Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel98)
-                                    .addComponent(txtnvngaysinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(16, 16, 16)
+                                .addComponent(jLabel98)
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel99)
                                     .addComponent(txtnvsodt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3418,8 +3387,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -3636,9 +3603,7 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
     private javax.swing.JTextField txthdtenkh;
     private javax.swing.JLabel txthdtienthua;
     private javax.swing.JLabel txthdtongtien;
-    private com.toedter.calendar.JDateChooser txtkmbatdau;
     private javax.swing.JTextField txtkmden;
-    private com.toedter.calendar.JDateChooser txtkmketthuc;
     private javax.swing.JTextField txtkmmucgg;
     private javax.swing.JTextField txtkmtenct;
     private javax.swing.JTextField txtkmtim;
@@ -3650,7 +3615,6 @@ public class ViewChuCuaHang extends javax.swing.JFrame {
     private javax.swing.JTextField txtnvemail;
     private javax.swing.JTextField txtnvgioitinh;
     private javax.swing.JTextField txtnvmanv;
-    private com.toedter.calendar.JDateChooser txtnvngaysinh;
     private javax.swing.JTextField txtnvsodt;
     private javax.swing.JButton txtnvsua;
     private javax.swing.JTextField txtnvtennv;
